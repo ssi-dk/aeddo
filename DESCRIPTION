@@ -3,7 +3,9 @@ Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
     person("Kasper", "Schou Telkamp", , "ksst@ssi.dk", role = c("aut", "cre"),
-           comment = c(ORCID = "0009-0001-5126-0190"))
+           comment = c(ORCID = "0009-0001-5126-0190"),
+    person("Statens Serum Institut, SSI", role = c("cph", "fnd"))
+    )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
