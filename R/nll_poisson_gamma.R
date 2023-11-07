@@ -1,3 +1,22 @@
+#' Negative Log-Likelihood for Poisson Gamma Model
+#'
+#' Calculate the negative log-likelihood for the Poisson Gamma modeling
+#' framework.
+#'
+#' @param theta A numeric vector containing model parameters. The first part of
+#' the vector represents fixed effects, and the remaining part represents model
+#' parameters.
+#' @param y A numeric vector of observed counts.
+#' @param n A numeric vector of population sizes (default is 1).
+#' @param formula A formula specifying the model structure.
+#'
+#' @return The negative log-likelihood value.
+#'
+#' @export
+#'
+#' @examples
+#' # Example usage:
+#' nll_poisson_gamma(c(0.5, 0.1), c(5, 8, 6), n = 100, y ~ 1)
 nll_poisson_gamma <- function(
     theta,
     y,
