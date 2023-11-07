@@ -1,8 +1,9 @@
-poisson_gamma <- function(
+nll_poisson_gamma <- function(
     theta,
     y,
     n = 1,
     formula) {
+
   # Create a data.frame with the observation 'y' and population sizes 'n'
   observations_data <- data.frame(
     y = y,
