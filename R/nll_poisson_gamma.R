@@ -11,7 +11,7 @@ nll_poisson_gamma <- function(
   )
 
   # Construct design matrix for the model
-  design_matrix <- model.matrix(
+  design_matrix <- stats::model.matrix(
     object = formula,
     data = observations_data
   )
@@ -33,7 +33,7 @@ nll_poisson_gamma <- function(
 
   # Calculate the log-likelihood
   log_likelihood <- sum(
-    dnbinom(
+    stats::dnbinom(
       x = y,
       size = size,
       prob = probability,
