@@ -2,8 +2,8 @@
 % Please edit documentation in R/aeddo-package.R
 \docType{package}
 \name{aeddo-package}
-\alias{aeddo}
 \alias{aeddo-package}
+\alias{_PACKAGE}
 \title{aeddo: Automated and Early Detection of Disease Outbreaks}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}

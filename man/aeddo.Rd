@@ -6,24 +6,82 @@
 \usage{
 aeddo(
   data,
-  formula,
+  formula = formula(),
   k,
-  sig_level,
-  exclude_past_outbreaks,
-  init_theta,
+  sig_level = 0.95,
+  exclude_past_outbreaks = TRUE,
+  init_theta = numeric(),
   lower,
   upper,
   method = "BFGS"
 )
 }
 \arguments{
-\item{method}{}
+\item{data}{A tibble containing the time series data, including columns 'y'
+for observed values,'n' for population size, and other covariates of
+interest.}
+
+\item{formula}{A model formula for the fixed effects in the  hierarchical
+model to fit to the data.}
+
+\item{k}{An integer specifying the rolling window size employed for parameter
+estimation.}
+
+\item{sig_level}{The quantile from the random effects distribution used for
+defining the for outbreak detection threshold, a numeric value between 0 and
+1.}
+
+\item{exclude_past_outbreaks}{logical value indicating whether past outbreak
+related observations should be excluded from future parameter estimation.}
+
+\item{init_theta}{Initial values for model parameters in optimization.}
+
+\item{lower}{Lower bounds for optimization parameters.}
+
+\item{upper}{Upper bounds for optimization parameters.}
+
+\item{method}{The optimization method to use, either "BFGS"  (default) or
+"L-BFGS-B".}
+}
+\value{
+An 'aedseo' object containing:
+\itemize{
+\item 'window_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a window of observations.
+\item 'reference_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a reference data point.
+\item 'phi': The dispersion parameter.
+\item 'lambda': The estimated outbreak intensity.
+\item 'u': The one-step ahead random effect.
+\item 'u_probability': The probability of observing the one-step ahead random effect.
+\item 'outbreak_alarm': Logical. Indicates if an outbreak is detected.
+}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-This function performs automated an early detection of disease outbreaks
-(aeddo) on a time series data set. It utilizes hierarchical models in an
+This function performs automated an early detection of disease outbreaks,
+(aeddo), on a time series data set. It utilizes hierarchical models in an
 innovative manner to infer one-step ahead random effects. In turn, these
 random effects are used directly to characterize an outbreak.
+}
+\examples{
+# Sample time series data
+data <- data.frame(
+  y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
+  n = c(100, 150, 200, 300, 500, 1000, 2000, 400, 200, 100)
+)
+# Define formula for modeling
+formula <- y ~ 1
+# Detect outbreaks
+aeddo_results <- aeddo(
+  data = data,
+  formula = formula,
+  k = 5,
+  sig_level = 0.95,
+  exclude_past_outbreaks = TRUE,
+  init_theta = c(1,1),
+  lower = c(-Inf, 1e-6),
+  upper = c(Inf, 1e2),
+  method = "L-BFGS-B")
+# Print the results
+print(aeddo_results)
 }

@@ -11,11 +11,11 @@ nll_poisson_gamma(theta, data, formula)
 the vector represents fixed effects, and the remaining part represents model
 parameters.}
 
+\item{data}{A tibble containing the time series data, including columns 'y'
+for observed values,'n' for population size, and other covariates of
+interest.}
+
 \item{formula}{A formula specifying the model structure.}
-
-\item{y}{A numeric vector of observed counts.}
-
-\item{n}{A numeric vector of population sizes (default is 1).}
 }
 \value{
 The negative log-likelihood value.
@@ -27,6 +27,21 @@ Calculate the negative log-likelihood for the Poisson Gamma modeling
 framework.
 }
 \examples{
-# Example usage:
-nll_poisson_gamma(c(0.5, 0.1), c(5, 8, 6), n = 100, y ~ 1)
+# Initial parameters
+theta <- c(0.5, 0.1)
+
+# Sample data
+data <- data.frame(
+  y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
+  n = c(100, 150, 200, 300, 500, 1000, 2000, 400, 200, 100)
+)
+
+# Fixed effects model formula
+fixed_effects_formula <- y ~ 1
+
+# Calculate negative log likelihood
+nll_poisson_gamma(
+  theta = theta,
+  data = data,
+  formula = fixed_effects_formula)
 }
