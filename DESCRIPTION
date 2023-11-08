@@ -22,8 +22,10 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
+    dplyr,
     lifecycle,
     magrittr,
+    purrr,
     stats,
     tibble
 URL: https://ssi-dk.github.io/aeddo/
