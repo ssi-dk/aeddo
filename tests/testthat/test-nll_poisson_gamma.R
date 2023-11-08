@@ -1,9 +1,13 @@
-test_that("multiplication works", {
+test_that("Does the negative log likelihood function work", {
+
   # Sample some data
-  y <- rnbinom(
-    n = 100,
-    size = 10,
-    prob = 0.7
+  tbl_data <- tibble::tibble(
+    y = rnbinom(
+      n = 100,
+      size = 10,
+      prob = 0.7
+    ),
+    n = 1
   )
 
   # Construct vector with model parameters
@@ -15,7 +19,7 @@ test_that("multiplication works", {
   # Calculate the negative log likelihood
   nll <- nll_poisson_gamma(
     theta = theta,
-    y = y,
+    data = tbl_data,
     formula = fixed_effects_formula
   )
 

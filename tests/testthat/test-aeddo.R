@@ -1,11 +1,18 @@
 test_that("Proper 'aedseo' class is returned", {
-  # Generate some sample data
-  y <- rnbinom(n = 40, size = 10, prob = 0.7)
+
+  # Sample some data
+  tbl_data <- tibble::tibble(
+    y = rnbinom(
+      n = 100,
+      size = 10,
+      prob = 0.7
+    ),
+    n = 1
+  )
 
   # Run the algorithm
   aeddo_results <- aeddo(
-    y = y,
-    n = 1,
+    data = tbl_data,
     formula = y ~ 1,
     k = 36,
     sig_level = 0.95,

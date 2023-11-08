@@ -4,23 +4,25 @@
 \alias{nll_poisson_gamma}
 \title{Negative Log-Likelihood for Poisson Gamma Model}
 \usage{
-nll_poisson_gamma(theta, y, n = 1, formula)
+nll_poisson_gamma(theta, data, formula)
 }
 \arguments{
 \item{theta}{A numeric vector containing model parameters. The first part of
 the vector represents fixed effects, and the remaining part represents model
 parameters.}
 
+\item{formula}{A formula specifying the model structure.}
+
 \item{y}{A numeric vector of observed counts.}
 
 \item{n}{A numeric vector of population sizes (default is 1).}
-
-\item{formula}{A formula specifying the model structure.}
 }
 \value{
 The negative log-likelihood value.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Calculate the negative log-likelihood for the Poisson Gamma modeling
 framework.
 }

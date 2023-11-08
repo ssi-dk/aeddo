@@ -1,6 +1,29 @@
+#' Automated and Early Detection of Disease Outbreaks
+#'
+#' @description
+#' `r lifecycle::badge('experimental')`
+#'
+#' This function performs automated an early detection of disease outbreaks
+#' (aeddo) on a time series data set. It utilizes hierarchical models in an
+#' innovative manner to infer one-step ahead random effects. In turn, these
+#' random effects are used directly to characterize an outbreak.
+#'
+#' @param data
+#' @param formula
+#' @param k
+#' @param sig_level
+#' @param exclude_past_outbreaks
+#' @param init_theta
+#' @param lower
+#' @param upper
+#' @param method
+#'
+#' @return
+#' @export
+#'
+#' @examples
 aeddo <- function(
-    y,
-    n = 1,
+    data,
     formula,
     k,
     sig_level,
@@ -9,14 +32,16 @@ aeddo <- function(
     lower,
     upper,
     method = "BFGS") {
+
   # Count the number of observations
-  n_observations <- length(y)
+  n_observation <- dplyr::count(data) %>%
+    purrr::pluck("n")
 
   # Prepare an empty tibble for results with class 'aedseo'.
   results <- tibble::new_tibble(
     x = tibble::tibble(
-      y = integer(),
-      n = integer(),
+      window_data = list(),
+      reference_data = list(),
       phi = numeric(),
       lambda = numeric(),
       u = numeric(),
@@ -27,17 +52,22 @@ aeddo <- function(
   )
 
   # Loop over the observations to perform windowed estimation
-  for (i in 1:(n_observations - k)) {
-    # Extract the observations for this window
-    window_observation <- y[i:(i + k - 1)]
-    # ... and the reference observation
-    reference_observation <- y[i + k]
+  for (i in 1:(n_observation - k)) {
 
-    # Create data.frame with
-    reference_data <- data.frame(
-      y = reference_observation,
-      n = n
-    )
+    # Extract data point for this estimation window
+    window_data <- data %>%
+      dplyr::filter(dplyr::row_number() %in%  1:(i + k - 1))
+    # ... and the reference data
+    reference_data <- data %>%
+      dplyr::filter(dplyr::row_number() == i + k)
+
+    # Extract the observation at reference time point
+    reference_y <- reference_data %>%
+      purrr::pluck("y")
+    # ... and the population size
+    reference_n <- reference_data %>%
+      purrr::pluck("n")
+
     # Construct a design matrix for the reference data
     reference_design_matrix <- stats::model.matrix(
       object = formula,
@@ -47,8 +77,7 @@ aeddo <- function(
     # Gather all arguments in a list for`do.call()`
     optimiser_arguments <- list(
       par = init_theta,
-      y = window_observation,
-      n = n,
+      data = window_data,
       formula = formula,
       fn = nll_poisson_gamma,
       method = method
@@ -70,10 +99,12 @@ aeddo <- function(
     phi <- optimized_param$par[length(optimized_param$par)]
 
     # Establish one-step ahead lambda using reference observation
-    lambda <- c(exp(reference_design_matrix %*% fixef_parameter - log(n)))
+    lambda <- c(
+      exp(reference_design_matrix %*% fixef_parameter - log(reference_n))
+      )
 
     # Infer the one-step ahead random effect
-    u <- (reference_observation * phi + 1) / (lambda * phi + 1)
+    u <- (reference_y * phi + 1) / (lambda * phi + 1)
 
     # Compute probability this random effects is observed
     u_probability <- stats::pgamma(
@@ -88,8 +119,8 @@ aeddo <- function(
     # Gather results for return
     results <- results %>%
       tibble::add_row(
-        y = reference_observation,
-        n = n,
+        window_data = list(window_data),
+        reference_data = list(reference_data),
         phi = phi,
         lambda = lambda,
         u = u,

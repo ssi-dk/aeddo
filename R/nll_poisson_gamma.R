@@ -1,5 +1,8 @@
 #' Negative Log-Likelihood for Poisson Gamma Model
 #'
+#' @description
+#' `r lifecycle::badge('experimental')`
+#'
 #' Calculate the negative log-likelihood for the Poisson Gamma modeling
 #' framework.
 #'
@@ -19,19 +22,18 @@
 #' nll_poisson_gamma(c(0.5, 0.1), c(5, 8, 6), n = 100, y ~ 1)
 nll_poisson_gamma <- function(
     theta,
-    y,
-    n = 1,
+    data,
     formula) {
-  # Create a data.frame with the observation 'y' and population sizes 'n'
-  observations_data <- data.frame(
-    y = y,
-    n = n
-  )
+
+  # Extract the observations
+  y <- data$y
+  # ... and population size
+  n <- data$n
 
   # Construct design matrix for the model
   design_matrix <- stats::model.matrix(
     object = formula,
-    data = observations_data
+    data = data
   )
 
   # Extract number of parameters in the fixed effects model
