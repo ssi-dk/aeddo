@@ -22,7 +22,6 @@ nll_poisson_gamma <- function(
     y,
     n = 1,
     formula) {
-
   # Create a data.frame with the observation 'y' and population sizes 'n'
   observations_data <- data.frame(
     y = y,

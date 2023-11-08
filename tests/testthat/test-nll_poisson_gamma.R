@@ -1,5 +1,4 @@
 test_that("multiplication works", {
-
   # Sample some data
   y <- rnbinom(
     n = 100,
@@ -8,7 +7,7 @@ test_that("multiplication works", {
   )
 
   # Construct vector with model parameters
-  theta <- c(1,1)
+  theta <- c(1, 1)
 
   # Assign a fixed effects model formula
   fixed_effects_formula <- y ~ 1
@@ -17,9 +16,9 @@ test_that("multiplication works", {
   nll <- nll_poisson_gamma(
     theta = theta,
     y = y,
-    formula = fixed_effects_formula)
+    formula = fixed_effects_formula
+  )
 
   # Expect that results is numeric
   expect_true(object = is.numeric(nll))
-
 })
