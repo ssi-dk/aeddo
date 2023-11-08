@@ -1,12 +1,19 @@
 Package: aeddo
-Title: What the Package Does (One Line, Title Case)
+Title: Automated and Early Detection of Disease Outbreaks
 Version: 0.0.0.9000
 Authors@R: c(
     person("Kasper", "Schou Telkamp", ,"ksst@ssi.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0001-5126-0190")),
     person("Statens Serum Institut, SSI", role = c("cph", "fnd"))
     )
-Description: What the package does (one paragraph).
+Description: A powerful tool for automating the early detection of disease
+             outbreaks in time series data. It utilizes advanced statistical 
+             method, including hiearchical models, in an innovative manner to
+             effectively characterize outbreak signals. It is particularly 
+             useful for epidemiologists, public health professionals, and 
+             researchers seeking to identify and respond to disease outbreaks 
+             in a timely fashions. For reference on hiearchical models, see 
+             Henrik Madsen (2011), ISBN:9781420091557.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
