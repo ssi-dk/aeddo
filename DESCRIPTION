@@ -13,7 +13,7 @@ Description: A powerful tool for automating the early detection of disease
              useful for epidemiologists, public health professionals, and 
              researchers seeking to identify and respond to disease outbreaks 
              in a timely fashions. For reference on hiearchical models, see 
-             Henrik Madsen (2011), ISBN:9781420091557.
+             Henrik Madsen and Poul Thyregod (2011), ISBN:9781420091557.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
