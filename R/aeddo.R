@@ -9,7 +9,6 @@ aeddo <- function(
     lower,
     upper,
     method = "BFGS") {
-
   # Count the number of observations
   n_observations <- length(y)
 
@@ -24,7 +23,8 @@ aeddo <- function(
       u_probability = numeric(),
       outbreak_alarm = logical()
     ),
-    class = "aedseo")
+    class = "aedseo"
+  )
 
   # Loop over the observations to perform windowed estimation
   for (i in 1:(n_observations - k)) {
@@ -99,5 +99,4 @@ aeddo <- function(
   }
 
   return(results)
-
 }
