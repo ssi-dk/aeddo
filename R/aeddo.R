@@ -66,16 +66,28 @@
 # TODO: #2 Include a method for removing outbreak related observations.
 # @telkamp7
 aeddo <- function(
-    data,
+    data = data.frame(),
     formula = formula(),
-    k,
+    k = integer(),
     sig_level = 0.95,
     exclude_past_outbreaks = TRUE,
     init_theta = numeric(),
+    lower = numeric(),
+    upper = numeric(),
+    method = "BFGS") {
+
+  # Assert function inputs
+  check_aeddo_inputs(
+    data,
+    formula,
+    k,
+    sig_level,
+    exclude_past_outbreaks,
+    init_theta,
     lower,
     upper,
-    method = "BFGS") {
-  # TODO: #3 Provide some checks for function inputs. @telkamp7
+    method
+  )
 
   # Count the number of observations
   n_observation <- dplyr::count(data) %>%
