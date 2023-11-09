@@ -117,7 +117,7 @@ check_aeddo_inputs <- function(
 #' @return Returns nothing. Raises errors if the inputs do not meet the
 #' specified criteria.
 #'
-#' @export
+#' @keywords internal
 #'
 #' @examples
 #'

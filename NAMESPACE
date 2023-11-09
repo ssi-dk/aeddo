@@ -2,7 +2,6 @@
 
 export("%>%")
 export(aeddo)
-export(check_nll_poisson_gamma_inputs)
 export(nll_poisson_gamma)
 importFrom(lifecycle,deprecated)
 importFrom(magrittr,"%>%")
