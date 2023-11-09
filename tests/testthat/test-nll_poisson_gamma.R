@@ -1,5 +1,4 @@
 test_that("Does the negative log likelihood function work", {
-
   # Sample some data
   tbl_data <- tibble::tibble(
     y = rnbinom(

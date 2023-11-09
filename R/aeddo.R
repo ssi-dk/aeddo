@@ -27,12 +27,15 @@
 #' "L-BFGS-B".
 #'
 #' @return An 'aedseo' object containing:
-#'   - 'window_data': A list of [tibble::tibble()], each representing a window of observations.
-#'   - 'reference_data': A list of [tibble::tibble()], each representing a reference data point.
+#'   - 'window_data': A list of [tibble::tibble()], each representing a window
+#'   of observations.
+#'   - 'reference_data': A list of [tibble::tibble()], each representing a
+#'   reference data point.
 #'   - 'phi': The dispersion parameter.
 #'   - 'lambda': The estimated outbreak intensity.
 #'   - 'u': The one-step ahead random effect.
-#'   - 'u_probability': The probability of observing the one-step ahead random effect.
+#'   - 'u_probability': The probability of observing the one-step ahead
+#'   random effect.
 #'   - 'outbreak_alarm': Logical. Indicates if an outbreak is detected.
 #'
 #' @export
@@ -53,23 +56,25 @@
 #'   k = 5,
 #'   sig_level = 0.95,
 #'   exclude_past_outbreaks = TRUE,
-#'   init_theta = c(1,1),
+#'   init_theta = c(1, 1),
 #'   lower = c(-Inf, 1e-6),
 #'   upper = c(Inf, 1e2),
-#'   method = "L-BFGS-B")
+#'   method = "L-BFGS-B"
+#' )
 #' # Print the results
 #' print(aeddo_results)
+# TODO: #2 Include a method for removing outbreak related observations.
+# @telkamp7
 aeddo <- function(
     data,
     formula = formula(),
     k,
     sig_level = 0.95,
-    exclude_past_outbreaks = TRUE, # TODO: #2 Include a method for removing outbreak related observations. @telkamp7
+    exclude_past_outbreaks = TRUE,
     init_theta = numeric(),
     lower,
     upper,
     method = "BFGS") {
-
   # TODO: #3 Provide some checks for function inputs. @telkamp7
 
   # Count the number of observations
@@ -92,10 +97,9 @@ aeddo <- function(
 
   # Loop over the observations to perform windowed estimation
   for (i in 1:(n_observation - k)) {
-
     # Extract data point for this estimation window
     window_data <- data %>%
-      dplyr::filter(dplyr::row_number() %in%  1:(i + k - 1))
+      dplyr::filter(dplyr::row_number() %in% 1:(i + k - 1))
     # ... and the reference data
     reference_data <- data %>%
       dplyr::filter(dplyr::row_number() == i + k)
@@ -140,7 +144,7 @@ aeddo <- function(
     # Establish one-step ahead lambda using reference observation
     lambda <- c(
       exp(reference_design_matrix %*% fixef_parameter - log(reference_n))
-      )
+    )
 
     # Infer the one-step ahead random effect
     u <- (reference_y * phi + 1) / (lambda * phi + 1)

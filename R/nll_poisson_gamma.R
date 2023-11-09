@@ -35,12 +35,12 @@
 #' nll_poisson_gamma(
 #'   theta = theta,
 #'   data = data,
-#'   formula = fixed_effects_formula)
+#'   formula = fixed_effects_formula
+#' )
 nll_poisson_gamma <- function(
     theta,
     data,
     formula) {
-
   # Extract the observations
   y <- data$y
   # ... and population size

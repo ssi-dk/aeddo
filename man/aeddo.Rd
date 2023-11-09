@@ -46,12 +46,15 @@ related observations should be excluded from future parameter estimation.}
 \value{
 An 'aedseo' object containing:
 \itemize{
-\item 'window_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a window of observations.
-\item 'reference_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a reference data point.
+\item 'window_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a window
+of observations.
+\item 'reference_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a
+reference data point.
 \item 'phi': The dispersion parameter.
 \item 'lambda': The estimated outbreak intensity.
 \item 'u': The one-step ahead random effect.
-\item 'u_probability': The probability of observing the one-step ahead random effect.
+\item 'u_probability': The probability of observing the one-step ahead
+random effect.
 \item 'outbreak_alarm': Logical. Indicates if an outbreak is detected.
 }
 }
