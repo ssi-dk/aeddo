@@ -42,33 +42,12 @@ nll_poisson_gamma <- function(
     data,
     formula) {
 
-  # Initialize the assertion collections
-  coll <- checkmate::makeAssertCollection()
-
   # Assert function inputs
-  checkmate::assert_numeric(
+  check_nll_poisson_gamma_inputs(
     theta,
-    null.ok = FALSE,
-    add = coll
+    data,
+    formula
   )
-  checkmate::assert_class(
-    data, classes = c("data.frame"),
-    null.ok = FALSE,
-    add = coll
-  )
-  checkmate::assert_names(
-    colnames(data),
-    must.include = c("y", "n"),
-    add = coll
-  )
-  checkmate::assert_formula(
-    formula,
-    null.ok = FALSE,
-    add = coll
-  )
-
-  # Report assertion collections
-  checkmate::reportAssertions(coll)
 
   # Extract the observations
   y <- data$y

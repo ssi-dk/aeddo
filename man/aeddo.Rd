@@ -5,14 +5,14 @@
 \title{Automated and Early Detection of Disease Outbreaks}
 \usage{
 aeddo(
-  data,
+  data = data.frame(),
   formula = formula(),
-  k,
+  k = integer(),
   sig_level = 0.95,
   exclude_past_outbreaks = TRUE,
   init_theta = numeric(),
-  lower,
-  upper,
+  lower = numeric(),
+  upper = numeric(),
   method = "BFGS"
 )
 }
