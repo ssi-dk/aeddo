@@ -64,6 +64,7 @@ innovative manner to infer one-step ahead random effects. In turn, these
 random effects are used directly to characterize an outbreak.
 }
 \examples{
+# TODO: #1 Create an example using MASS::deaths. @telkamp7
 # Sample time series data
 data <- data.frame(
   y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
