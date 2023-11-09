@@ -1,6 +1,7 @@
 test_that("Proper 'aedseo' class is returned", {
   # Sample some data
   tbl_data <- tibble::tibble(
+    time = 1:100,
     y = rnbinom(
       n = 100,
       size = 10,
