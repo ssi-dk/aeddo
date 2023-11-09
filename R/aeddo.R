@@ -87,11 +87,6 @@ aeddo <- function(
     method
   )
 
-  # TODO: #5 Require a unique identifier for each data point. @telkamp7
-  # Make an explicit index to uniquely identify the observations
-  data <- data %>%
-    dplyr::mutate(index = dplyr::row_number())
-
   # Count the number of observations
   n_observation <- dplyr::count(data) %>%
     purrr::pluck("n")

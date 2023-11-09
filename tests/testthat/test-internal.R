@@ -51,7 +51,7 @@ test_that("check_aeddo_inputs throws an error for invalid inputs", {
   invalid_lower <- "not_numeric"
   invalid_upper <- "not_numeric"
   invalid_method <- "invalid_choice"
-  valid_data <- data.frame(y = c(4, 5, 6), n = c(7, 8, 9))
+  valid_data <- data.frame(time = 1:3, y = c(4, 5, 6), n = c(7, 8, 9))
   valid_formula <- y ~ 1
   valid_k <- 2
   valid_sig_level <- 0.95
@@ -214,7 +214,7 @@ test_that("check_aeddo_inputs throws an error for invalid inputs", {
 
 test_that("check_aeddo_inputs does not throw an error for valid inputs", {
   # Valid inputs for testing
-  valid_data <- data.frame(y = c(4, 5, 6), n = c(7, 8, 9))
+  valid_data <- data.frame(time = 1:3, y = c(4, 5, 6), n = c(7, 8, 9))
   valid_formula <- y ~ 1
   valid_k <- 2
   valid_sig_level <- 0.95
