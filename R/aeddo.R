@@ -26,11 +26,11 @@
 #' @param method The optimization method to use, either "BFGS"  (default) or
 #' "L-BFGS-B".
 #'
-#' @return An 'aedseo' object containing:
-#'   - 'window_data': A list of [tibble::tibble()], each representing a window
-#'   of observations.
-#'   - 'reference_data': A list of [tibble::tibble()], each representing a
-#'   reference data point.
+#' @return A [tibble][tibble::tibble-package]-like 'aedseo' object containing:
+#'   - 'window_data': A list of [tibble][tibble::tibble-package], each
+#'   representing the data for this windowed parameter estimation.
+#'   - 'reference_data': A list of [tibble][tibble::tibble-package], each
+#'   representing the data for the reference time point.
 #'   - 'phi': The dispersion parameter.
 #'   - 'lambda': The estimated outbreak intensity.
 #'   - 'u': The one-step ahead random effect.

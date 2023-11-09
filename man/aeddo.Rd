@@ -44,12 +44,12 @@ related observations should be excluded from future parameter estimation.}
 "L-BFGS-B".}
 }
 \value{
-An 'aedseo' object containing:
+A \link[tibble:tibble-package]{tibble}-like 'aedseo' object containing:
 \itemize{
-\item 'window_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a window
-of observations.
-\item 'reference_data': A list of \code{\link[tibble:tibble]{tibble::tibble()}}, each representing a
-reference data point.
+\item 'window_data': A list of \link[tibble:tibble-package]{tibble}, each
+representing the data for this windowed parameter estimation.
+\item 'reference_data': A list of \link[tibble:tibble-package]{tibble}, each
+representing the data for the reference time point.
 \item 'phi': The dispersion parameter.
 \item 'lambda': The estimated outbreak intensity.
 \item 'u': The one-step ahead random effect.
@@ -82,10 +82,11 @@ aeddo_results <- aeddo(
   k = 5,
   sig_level = 0.95,
   exclude_past_outbreaks = TRUE,
-  init_theta = c(1,1),
+  init_theta = c(1, 1),
   lower = c(-Inf, 1e-6),
   upper = c(Inf, 1e2),
-  method = "L-BFGS-B")
+  method = "L-BFGS-B"
+)
 # Print the results
 print(aeddo_results)
 }

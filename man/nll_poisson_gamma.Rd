@@ -43,5 +43,6 @@ fixed_effects_formula <- y ~ 1
 nll_poisson_gamma(
   theta = theta,
   data = data,
-  formula = fixed_effects_formula)
+  formula = fixed_effects_formula
+)
 }
