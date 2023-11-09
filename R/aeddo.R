@@ -63,8 +63,6 @@
 #' )
 #' # Print the results
 #' print(aeddo_results)
-# TODO: #2 Include a method for removing outbreak related observations.
-# @telkamp7
 aeddo <- function(
     data = data.frame(),
     formula = formula(),
@@ -89,6 +87,11 @@ aeddo <- function(
     method
   )
 
+  # TODO: #5 Require a unique identifier for each data point. @telkamp7
+  # Make an explicit index to uniquely identify the observations
+  data <- data %>%
+    dplyr::mutate(index = dplyr::row_number())
+
   # Count the number of observations
   n_observation <- dplyr::count(data) %>%
     purrr::pluck("n")
@@ -107,14 +110,30 @@ aeddo <- function(
     class = "aedseo"
   )
 
+  # Initilize past_outbreaks if we want to omit outbreak related observations
+  if(exclude_past_outbreaks == TRUE) {
+    past_outbreaks <- tibble::as_tibble(
+      lapply(data, function(col) col[0])
+      )
+  }
+
   # Loop over the observations to perform windowed estimation
   for (i in 1:(n_observation - k)) {
     # Extract data point for this estimation window
     window_data <- data %>%
-      dplyr::filter(dplyr::row_number() %in% 1:(i + k - 1))
+      dplyr::filter(dplyr::row_number() %in% i:(i + k - 1))
     # ... and the reference data
     reference_data <- data %>%
       dplyr::filter(dplyr::row_number() == i + k)
+
+    # Exclude past observations, if they were deemed an outbreak
+    # Turned on by 'excludePastOutbreaks = TRUE'
+    if(exclude_past_outbreaks == TRUE){
+      if(nrow(past_outbreaks) > 0){
+        window_data <- window_data %>%
+          dplyr::setdiff(past_outbreaks)
+      }
+    }
 
     # Extract the observation at reference time point
     reference_y <- reference_data %>%
@@ -182,6 +201,11 @@ aeddo <- function(
         u_probability = u_probability,
         outbreak_alarm = outbreak_alarm
       )
+
+    if(exclude_past_outbreaks == TRUE & outbreak_alarm == TRUE){
+      past_outbreaks <- past_outbreaks %>%
+        dplyr::bind_rows(reference_data)
+    }
   }
 
   return(results)
