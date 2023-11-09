@@ -38,6 +38,7 @@
 #' @export
 #'
 #' @examples
+#' # TODO: #1 Create an example using MASS::deaths. @telkamp7
 #' # Sample time series data
 #' data <- data.frame(
 #'   y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
@@ -63,11 +64,13 @@ aeddo <- function(
     formula = formula(),
     k,
     sig_level = 0.95,
-    exclude_past_outbreaks = TRUE,
+    exclude_past_outbreaks = TRUE, # TODO: #2 Include a method for removing outbreak related observations. @telkamp7
     init_theta = numeric(),
     lower,
     upper,
     method = "BFGS") {
+
+  # TODO: #3 Provide some checks for function inputs. @telkamp7
 
   # Count the number of observations
   n_observation <- dplyr::count(data) %>%
