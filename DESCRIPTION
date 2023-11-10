@@ -24,7 +24,8 @@ Suggests:
     MASS,
     rmarkdown,
     testthat (>= 3.0.0),
-    tidyr
+    tidyr,
+    zoo
 Config/testthat/edition: 3
 Imports: 
     checkmate,
