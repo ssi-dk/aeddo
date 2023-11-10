@@ -24,5 +24,5 @@ test_that("Proper 'aedseo' class is returned", {
   )
 
   # Test that the correct class is returned
-  expect_s3_class(aeddo_results, "aedseo")
+  expect_s3_class(aeddo_results, "aeddo")
 })
