@@ -48,7 +48,7 @@ check_aeddo_inputs <- function(
   )
   checkmate::assert_names(
     colnames(data),
-    must.include = c("y", "n"),
+    must.include = c("time", "y", "n"),
     add = coll
   )
   checkmate::assert_formula(

@@ -44,6 +44,7 @@
 #' # TODO: #1 Create an example using MASS::deaths. @telkamp7
 #' # Sample time series data
 #' data <- data.frame(
+#'   time = 1:10,
 #'   y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
 #'   n = c(100, 150, 200, 300, 500, 1000, 2000, 400, 200, 100)
 #' )
@@ -86,11 +87,6 @@ aeddo <- function(
     upper,
     method
   )
-
-  # TODO: #5 Require a unique identifier for each data point. @telkamp7
-  # Make an explicit index to uniquely identify the observations
-  data <- data %>%
-    dplyr::mutate(index = dplyr::row_number())
 
   # Count the number of observations
   n_observation <- dplyr::count(data) %>%
