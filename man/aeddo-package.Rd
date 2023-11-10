@@ -8,12 +8,14 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A powerful tool for automating the early detection of disease outbreaks in time series data. It utilizes advanced statistical method, including hiearchical models, in an innovative manner to effectively characterize outbreak signals. It is particularly useful for epidemiologists, public health professionals, and researchers seeking to identify and respond to disease outbreaks in a timely fashions. For reference on hiearchical models, see Henrik Madsen and Poul Thyregod (2011), ISBN:9781420091557.
+A powerful tool for automating the early detection of disease outbreaks in time series data. It utilizes advanced statistical method, including hiearchical models, in an innovative manner to effectively characterize outbreak signals. It is particularly useful for epidemiologists, public health professionals, and researchers seeking to identify and respond to disease outbreaks in a timely fashions. For reference on hierarchical models, see Henrik Madsen and Poul Thyregod (2011), ISBN:9781420091557.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://ssi-dk.github.io/aeddo/}
+  \item \url{https://github.com/ssi-dk/aeddo}
+  \item Report bugs at \url{https://github.com/ssi-dk/aeddo/issues}
 }
 
 }
