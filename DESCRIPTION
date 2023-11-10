@@ -35,5 +35,6 @@ Imports:
     purrr,
     stats,
     tibble
-URL: https://ssi-dk.github.io/aeddo/
+URL: https://ssi-dk.github.io/aeddo/, https://github.com/ssi-dk/aeddo
 VignetteBuilder: knitr
+BugReports: https://github.com/ssi-dk/aeddo/issues
