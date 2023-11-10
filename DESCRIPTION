@@ -12,14 +12,18 @@ Description: A powerful tool for automating the early detection of disease
              effectively characterize outbreak signals. It is particularly 
              useful for epidemiologists, public health professionals, and 
              researchers seeking to identify and respond to disease outbreaks 
-             in a timely fashions. For reference on hiearchical models, see 
+             in a timely fashions. For reference on hierarchical models, see 
              Henrik Madsen and Poul Thyregod (2011), ISBN:9781420091557.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
-    testthat (>= 3.0.0)
+    knitr,
+    MASS,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    tidyr
 Config/testthat/edition: 3
 Imports: 
     checkmate,
@@ -30,3 +34,4 @@ Imports:
     stats,
     tibble
 URL: https://ssi-dk.github.io/aeddo/
+VignetteBuilder: knitr
