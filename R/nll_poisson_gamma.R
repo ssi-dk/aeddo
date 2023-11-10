@@ -41,7 +41,6 @@ nll_poisson_gamma <- function(
     theta,
     data,
     formula) {
-
   # Assert function inputs
   check_nll_poisson_gamma_inputs(
     theta,

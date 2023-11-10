@@ -41,27 +41,40 @@
 #' @export
 #'
 #' @examples
-#' # TODO: #1 Create an example using MASS::deaths. @telkamp7
-#' # Sample time series data
-#' data <- data.frame(
-#'   time = 1:10,
-#'   y = c(10, 15, 20, 30, 50, 100, 200, 40, 20, 10),
-#'   n = c(100, 150, 200, 300, 500, 1000, 2000, 400, 200, 100)
+#' # Create an example aedseo_tsd object
+#' aeddo_data <- data.frame(
+#'   time = as.Date(c(
+#'     "2023-01-01",
+#'     "2023-01-02",
+#'     "2023-01-03",
+#'     "2023-01-04",
+#'     "2023-01-05",
+#'     "2023-01-06"
+#'   )),
+#'   y = c(100, 120, 180, 110, 130, 140),
+#'   n = 1
 #' )
-#' # Define formula for modeling
-#' formula <- y ~ 1
-#' # Detect outbreaks
+#'
+#' # Supply a model formula
+#' fixed_effects_formula <- y ~ 1
+#'
+#' # Choose a size for the rolling window
+#' k = 2
+#' # ... and quantile for the threshold
+#' sig_level = 0.9
+#'
+#' # Employ the algorithm
 #' aeddo_results <- aeddo(
-#'   data = data,
-#'   formula = formula,
-#'   k = 5,
-#'   sig_level = 0.95,
+#'   data = aeddo_data,
+#'   formula = fixed_effects_formula,
+#'   k = k,
+#'   sig_level = sig_level,
 #'   exclude_past_outbreaks = TRUE,
 #'   init_theta = c(1, 1),
 #'   lower = c(-Inf, 1e-6),
 #'   upper = c(Inf, 1e2),
 #'   method = "L-BFGS-B"
-#' )
+#'   )
 #' # Print the results
 #' print(aeddo_results)
 aeddo <- function(
@@ -74,7 +87,6 @@ aeddo <- function(
     lower = numeric(),
     upper = numeric(),
     method = "BFGS") {
-
   # Assert function inputs
   check_aeddo_inputs(
     data,
@@ -104,14 +116,15 @@ aeddo <- function(
       outbreak_alarm = logical()
     ),
     class = "aeddo",
-    data = data
+    data = data,
+    k = k
   )
 
   # Initilize past_outbreaks if we want to omit outbreak related observations
-  if(exclude_past_outbreaks == TRUE) {
+  if (exclude_past_outbreaks == TRUE) {
     past_outbreaks <- tibble::as_tibble(
       lapply(data, function(col) col[0])
-      )
+    )
   }
 
   # Loop over the observations to perform windowed estimation
@@ -125,8 +138,8 @@ aeddo <- function(
 
     # Exclude past observations, if they were deemed an outbreak
     # Turned on by 'excludePastOutbreaks = TRUE'
-    if(exclude_past_outbreaks == TRUE){
-      if(nrow(past_outbreaks) > 0){
+    if (exclude_past_outbreaks == TRUE) {
+      if (nrow(past_outbreaks) > 0) {
         window_data <- window_data %>%
           dplyr::setdiff(past_outbreaks)
       }
@@ -199,7 +212,7 @@ aeddo <- function(
         outbreak_alarm = outbreak_alarm
       )
 
-    if(exclude_past_outbreaks == TRUE & outbreak_alarm == TRUE){
+    if (exclude_past_outbreaks == TRUE && outbreak_alarm == TRUE) {
       past_outbreaks <- past_outbreaks %>%
         dplyr::bind_rows(reference_data)
     }

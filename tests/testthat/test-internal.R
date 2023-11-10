@@ -23,21 +23,28 @@ test_that("check_nll_poisson_gamma_inputs throws an error for invalid inputs", {
 
   # Test invalid formula
   expect_error(
-    check_nll_poisson_gamma_inputs(1:3, data.frame(y = c(4, 5, 6), n = c(7, 8, 9)), invalid_formula)
+    check_nll_poisson_gamma_inputs(
+      1:3,
+      data.frame(y = c(4, 5, 6), n = c(7, 8, 9)),
+      invalid_formula
+    )
   )
 })
 
-test_that("check_nll_poisson_gamma_inputs does not throw an error for valid inputs", {
-  # Valid inputs for testing
-  valid_theta <- c(1, 2, 3)
-  valid_data <- data.frame(y = c(4, 5, 6), n = c(7, 8, 9))
-  valid_formula <- ~ y + n
+test_that(
+  "check_nll_poisson_gamma_inputs does not throw an error for valid inputs",
+  {
+    # Valid inputs for testing
+    valid_theta <- c(1, 2, 3)
+    valid_data <- data.frame(y = c(4, 5, 6), n = c(7, 8, 9))
+    valid_formula <- ~ y + n
 
-  # Test valid inputs
-  expect_no_error(
-    check_nll_poisson_gamma_inputs(valid_theta, valid_data, valid_formula)
-  )
-})
+    # Test valid inputs
+    expect_no_error(
+      check_nll_poisson_gamma_inputs(valid_theta, valid_data, valid_formula)
+    )
+  }
+)
 
 test_that("check_aeddo_inputs throws an error for invalid inputs", {
   # Invalid inputs for testing
