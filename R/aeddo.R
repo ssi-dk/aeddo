@@ -107,7 +107,7 @@ aeddo <- function(
       u_probability = numeric(),
       outbreak_alarm = logical()
     ),
-    class = "aedseo"
+    class = "aeddo"
   )
 
   # Initilize past_outbreaks if we want to omit outbreak related observations
