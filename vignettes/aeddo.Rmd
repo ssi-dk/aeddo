@@ -129,18 +129,21 @@ joined_results <- processed_deaths %>%
 # Extract the observations used for training
 training_dates <- head(processed_deaths$time, k)
 
-# Make a nice 'ggplot' visualization
-joined_results %>%
-  ggplot(mapping = aes(x = time, y = y, alpha = outbreak_alarm)) +
-  geom_point() +
-  annotate(
-    geom = "rect",
-    xmin = training_dates[1]-Inf,
-    xmax = training_dates[k],
-    ymin = -Inf,
-    ymax = Inf,
-    alpha = 0.2) +
-  guides(alpha = "none")
+if(requireNamespace("ggplot2", quietly = TRUE)){
+  # Make a nice 'ggplot' visualization
+  joined_results %>%
+    ggplot(mapping = aes(x = time, y = y, alpha = outbreak_alarm)) +
+    geom_point() +
+    annotate(
+      geom = "rect",
+      xmin = training_dates[1]-Inf,
+      xmax = training_dates[k],
+      ymin = -Inf,
+      ymax = Inf,
+      alpha = 0.2) +
+    guides(alpha = "none")
+}
+
 
 ```
 
