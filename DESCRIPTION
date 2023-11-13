@@ -8,7 +8,7 @@ Authors@R: c(
     )
 Description: A powerful tool for automating the early detection of disease
              outbreaks in time series data. It utilizes advanced statistical 
-             method, including hiearchical models, in an innovative manner to
+             method, including hierarchical models, in an innovative manner to
              effectively characterize outbreak signals. It is particularly 
              useful for epidemiologists, public health professionals, and 
              researchers seeking to identify and respond to disease outbreaks 
