@@ -85,9 +85,9 @@ aeddo_data <- data.frame(
 fixed_effects_formula <- y ~ 1
 
 # Choose a size for the rolling window
-k = 2
+k <- 2
 # ... and quantile for the threshold
-sig_level = 0.9
+sig_level <- 0.9
 
 # Employ the algorithm
 aeddo_results <- aeddo(
@@ -100,7 +100,7 @@ aeddo_results <- aeddo(
   lower = c(-Inf, 1e-6),
   upper = c(Inf, 1e2),
   method = "L-BFGS-B"
-  )
+)
 # Print the results
 print(aeddo_results)
 }
