@@ -1,7 +1,7 @@
 #' Negative Log-Likelihood for Poisson Gamma Model
 #'
 #' @description
-#' `r lifecycle::badge('experimental')`
+#' `r lifecycle::badge('stable')`
 #'
 #' Calculate the negative log-likelihood for the Poisson Gamma modeling
 #' framework.

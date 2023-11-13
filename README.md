@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/aeddo)](https://CRAN.R-project.org/
 [![Codecov test
 coverage](https://codecov.io/gh/ssi-dk/aeddo/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssi-dk/aeddo?branch=main)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 ## aeddo: Automated and Early Detection of Disease Outbreaks

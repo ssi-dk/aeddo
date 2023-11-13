@@ -1,7 +1,7 @@
 #' Automated and Early Detection of Disease Outbreaks
 #'
 #' @description
-#' `r lifecycle::badge('experimental')`
+#' `r lifecycle::badge('stable')`
 #'
 #' This function performs automated an early detection of disease outbreaks,
 #' (aeddo), on a time series data set. It utilizes hierarchical models in an

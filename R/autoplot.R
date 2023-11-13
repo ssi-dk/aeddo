@@ -1,7 +1,7 @@
 #' Create a complete 'ggplot' appropriate to a particular data type
 #'
 #' @description
-#' `r lifecycle::badge("stable")`
+#' `r lifecycle::badge('stable')`
 #'
 #'  This function generates a complete 'ggplot' object suitable for
 #'  visualizing time series data in an `aeddo` object. It creates a line
