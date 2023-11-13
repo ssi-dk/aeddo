@@ -58,7 +58,7 @@ You can install the development version of `aeddo` from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("telkamp7/aeddo")
+devtools::install_github("ssi-dk/aeddo")
 ```
 
 Start leveraging aeddo today to gain a unique perspective on disease
