@@ -130,7 +130,7 @@ To visualize the results. Here, the circles inside the grey area represent the t
 
 ## Formulation of the hiearchical generalzied linear model
 
-The hierarchical generalized linear model used by the novel outbreak detection algorithm is formulated as a hierarchical Poisson Gamma model. This section present the derivation of the marginal distribution of $Y$ along with the joint likelihood function for the first and second stage models. For reference on hierarchical models, see Henrik Madsen and Poul Thyregod (2011), ISBN:9781420091557.
+The hierarchical generalized linear model used by the novel outbreak detection algorithm is formulated as a hierarchical Poisson Gamma model. This section present the derivation of the marginal distribution of $Y$ along with the joint likelihood function for the first and second stage models. For reference on hierarchical models, see Henrik Madsen and Poul Thyregod (2011), ISBN: 9781420091557.
 
 In the compound Poisson Gamma model the conditional distribution of the count observations are assumed to be a Poisson distribution with intensities $\lambda$
 

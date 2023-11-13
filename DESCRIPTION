@@ -32,10 +32,10 @@ Imports:
     lifecycle,
     magrittr,
     purrr,
-    stats,
     tibble,
     tidyr,
     utils,
     rlang
-URL: https://ssi-dk.github.io/aeddo/
+URL: https://ssi-dk.github.io/aeddo/, https://github.com/ssi-dk/aeddo
 VignetteBuilder: knitr
+BugReports: https://github.com/ssi-dk/aeddo/issues

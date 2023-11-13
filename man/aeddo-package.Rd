@@ -14,6 +14,8 @@ A powerful tool for automating the early detection of disease outbreaks in time 
 Useful links:
 \itemize{
   \item \url{https://ssi-dk.github.io/aeddo/}
+  \item \url{https://github.com/ssi-dk/aeddo}
+  \item Report bugs at \url{https://github.com/ssi-dk/aeddo/issues}
 }
 
 }
