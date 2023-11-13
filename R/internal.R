@@ -42,7 +42,8 @@ check_aeddo_inputs <- function(
   coll <- checkmate::makeAssertCollection()
 
   checkmate::assert_class(
-    data, classes = c("data.frame"),
+    data,
+    classes = c("data.frame"),
     null.ok = FALSE,
     add = coll
   )
@@ -120,7 +121,6 @@ check_aeddo_inputs <- function(
 #' @keywords internal
 #'
 #' @examples
-#'
 #' \dontrun{
 #' # This function is for internal use and is called within the
 #' # nll_poisson_gamma function. It is not intended to be called directly by
@@ -140,7 +140,8 @@ check_nll_poisson_gamma_inputs <- function(
     add = coll
   )
   checkmate::assert_class(
-    data, classes = c("data.frame"),
+    data,
+    classes = c("data.frame"),
     null.ok = FALSE,
     add = coll
   )
