@@ -22,6 +22,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Kasper Schou Telkamp \email{ksst@ssi.dk} (\href{https://orcid.org/0009-0001-5126-0190}{ORCID})
 
+Authors:
+\itemize{
+  \item Lasse Engbo Christiansen \email{lsec@ssi.dk} (\href{https://orcid.org/0000-0001-5019-1931}{ORCID})
+}
+
 Other contributors:
 \itemize{
   \item Statens Serum Institut, SSI [copyright holder, funder]
