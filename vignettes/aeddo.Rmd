@@ -55,7 +55,7 @@ plot(deaths)
 Clearly, an annual seasonal component is seen in the data. Thus, a fixed-effects model incorporating seasonality using Fourier terms is hypothesized:
 
 ```{r formula}
-formula <- y ~ 1 + sin(2 * pi * m / 12) + cos( 2 * pi * m / 12)
+formula <- y ~ 1 + sin(2 * pi * m / 12) + cos(2 * pi * m / 12)
 ```
 
 It is time to preprocess the data. First, the 'ts' object is broken down into a time stamp and observations. This is achieved partly through the 'zoo' R package:
@@ -63,7 +63,8 @@ It is time to preprocess the data. First, the 'ts' object is broken down into a 
 ```{r preprocess_ts}
 # Extract timestamp
 timestamp <- zoo::as.yearmon(
-  stats::time(deaths))
+  stats::time(deaths)
+)
 # ... and observations
 observations <- c(deaths)
 ```
@@ -73,7 +74,7 @@ Then, it is needed to compute the month within a year, $m$, which is needed for 
 ```{r preprocess_month_in_year}
 m <- as.integer(
   format(timestamp, "%m")
-  )
+)
 ```
 
 Now, it is bundled together in a data.frame:
@@ -98,7 +99,6 @@ sig_level <- 0.9
 The 'aeddo' algorithm is applied to the data:
 
 ```{r aeddo_results}
-
 aeddo_results <- aeddo(
   data = processed_deaths,
   formula = formula,
@@ -107,47 +107,26 @@ aeddo_results <- aeddo(
   exclude_past_outbreaks = TRUE,
   init_theta = c(1, 0, 0, 1),
   lower = c(1e-6, -6, -6, 1e-6),
-  upper = c(1e2, 6, 6, 3), 
+  upper = c(1e2, 6, 6, 3),
   method = "L-BFGS-B"
 )
-
 ```
 
-Let's visualize the results:
+## The aeddo package implements S3 methods
 
-```{r aeddo_viz, warning=FALSE}
-# Unnest the results
-unnested_aeddo_results <- aeddo_results %>%
-  tidyr::unnest(reference_data)
+Among other things, the 'aeddo' R package incorporates S3 methods, that allow for easy visualization of the outcome of the algorithm. This includes an `autoplot()` function, but also a wrapper for the autoplot function, `plot()`. One can use either:
 
-# Join with original data, to visualize full series
-joined_results <- processed_deaths %>%
-  dplyr::full_join(
-    y = unnested_aeddo_results,
-    by = dplyr::join_by(time, y, n, m))
-
-# Extract the observations used for training
-training_dates <- head(processed_deaths$time, k)
-
-if(requireNamespace("ggplot2", quietly = TRUE)){
-  # Make a nice 'ggplot' visualization
-  joined_results %>%
-    ggplot(mapping = aes(x = time, y = y, alpha = outbreak_alarm)) +
-    geom_point() +
-    annotate(
-      geom = "rect",
-      xmin = training_dates[1]-Inf,
-      xmax = training_dates[k],
-      ymin = -Inf,
-      ymax = Inf,
-      alpha = 0.2) +
-    guides(alpha = "none")
-}
-
-
+```{r aeddo_autoplot, eval=FALSE}
+autoplot(aeddo_results)
 ```
 
-Here, the circles inside the grey area represent the training observations, the dim circles after the training period represents observations within the expected range, and the full opacity circles after the training period represents outbreak-related observations. Hence, there are found `r sum(aeddo_results$outbreak_alarm)` outbreak-related observations in the data set.
+or
+
+```{r aeddo_viz}
+plot(aeddo_results)
+```
+
+To visualize the results. Here, the circles inside the grey area represent the training observations, the dim circles after the training period represents observations within the expected range, and the full opacity circles after the training period represents outbreak-related observations. Hence, there are found `r sum(aeddo_results$outbreak_alarm)` outbreak-related observations in the data set.
 
 ## Formulation of the hiearchical generalzied linear model
 

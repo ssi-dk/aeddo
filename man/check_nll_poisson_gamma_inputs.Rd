@@ -24,7 +24,6 @@ nll_poisson_gamma function. It performs various checks using the checkmate
 package to ensure that the inputs conform to expected types and values.
 }
 \examples{
-
 \dontrun{
 # This function is for internal use and is called within the
 # nll_poisson_gamma function. It is not intended to be called directly by

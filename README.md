@@ -46,12 +46,19 @@ this challenge and offer a range of benefits:
 
 ## Installation
 
-To install aeddo, you can use the following command to obtain the
-development version from [GitHub](https://github.com/):
+``` r
+# Install aeddo from CRAN
+install.packages("aeddo")
+```
+
+### Development vestion
+
+You can install the development version of `aeddo` from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ssi-dk/aeddo")
+devtools::install_github("telkamp7/aeddo")
 ```
 
 Start leveraging aeddo today to gain a unique perspective on disease
