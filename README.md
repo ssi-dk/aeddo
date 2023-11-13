@@ -51,7 +51,7 @@ this challenge and offer a range of benefits:
 install.packages("aeddo")
 ```
 
-### Development vestion
+### Development version
 
 You can install the development version of `aeddo` from
 [GitHub](https://github.com/) with:
