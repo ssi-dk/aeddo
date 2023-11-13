@@ -52,7 +52,7 @@ aeddo_results <- aeddo(
   k = k,
   sig_level = sig_level,
   exclude_past_outbreaks = TRUE,
-  init_theta = c(1, 1),
+  init_theta = c(1, 0),
   lower = c(-Inf, 1e-6),
   upper = c(Inf, 1e2),
   method = "L-BFGS-B"
