@@ -14,12 +14,8 @@ The package has been tested on multiple platforms and no errors or warnings were
 
 We have addressed the feedback from the previous review. Specifically:
 
-1. **Only ship the CRAN template for the MIT license**: The LICENSE files have been updated to adhere to the CRAN template for the MIT license.
-2. **Possibly misspelled words in DESCRIPTION** Corrected the misspelled word in DESCRIPTION. *hiearchical* -> *hierarchical*.
+1. **Please proof-read your description** I have proof-read the description, and refined the sentence structures.
 
-## Additional improvements
-
-* Added 'stable' lifecycle tags for improved clarity.
 
 ## Resubmission
 
