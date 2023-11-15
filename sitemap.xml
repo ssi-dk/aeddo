@@ -7,15 +7,48 @@
     <loc>https://ssi-dk.github.io/aeddo/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>https://ssi-dk.github.io/aeddo/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/articles/aeddo.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/articles/index.html</loc>
+  </url>
+  <url>
     <loc>https://ssi-dk.github.io/aeddo/authors.html</loc>
   </url>
   <url>
     <loc>https://ssi-dk.github.io/aeddo/index.html</loc>
   </url>
   <url>
+    <loc>https://ssi-dk.github.io/aeddo/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/aeddo-package.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/aeddo.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/autoplot.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/check_aeddo_inputs.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/check_nll_poisson_gamma_inputs.html</loc>
+  </url>
+  <url>
     <loc>https://ssi-dk.github.io/aeddo/reference/index.html</loc>
   </url>
   <url>
     <loc>https://ssi-dk.github.io/aeddo/reference/nll_poisson_gamma.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://ssi-dk.github.io/aeddo/reference/plot.html</loc>
   </url>
 </urlset>
