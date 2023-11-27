@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   aeddo: aeddo.html
-last_built: 2023-11-15T20:48Z
+last_built: 2023-11-27T13:02Z
 urls:
   reference: https://ssi-dk.github.io/aeddo/reference
   article: https://ssi-dk.github.io/aeddo/articles
