@@ -1,6 +1,6 @@
 Package: aeddo
 Title: Automated and Early Detection of Disease Outbreaks
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: c(
     person("Kasper", "Schou Telkamp", ,"kasper.telkamp@gmail.com", role = c("aut"),
            comment = c(ORCID = "0009-0001-5126-0190")),
