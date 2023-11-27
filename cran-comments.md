@@ -10,16 +10,11 @@
 
 The package has been tested on multiple platforms and no errors or warnings were identified during the tests.
 
-## Reviewer Feedback
+## Patch
 
-We have addressed the feedback from the previous review. Specifically:
+This patch aims as:
 
-1. **Please proof-read your description** I have proof-read the description, and refined the sentence structures.
-
-
-## Resubmission
-
-We've addressed the feedback provided, and the package is now ready for resubmission. We appreciate your review and are looking forward to having our package included on CRAN.
+* Transfer maintainership of the R package to Lasse Engbo Christiansen (LSEC@ssi.dk), and change the e-mail address for the previous maintainer to kasper.telkamp@gmail.com, as his affiliation with Statens Serum Institut (SSI) stops - and the e-mail therefore will be a dead link. Refer to e-mail sent by KSST@ssi.dk on Monday the 27th of November at 08:25 with subject 'Transfer of Maintainership for aedseo and aeddo R packages'.
 
 Best regards,
 
