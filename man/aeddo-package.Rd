@@ -20,11 +20,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Kasper Schou Telkamp \email{ksst@ssi.dk} (\href{https://orcid.org/0009-0001-5126-0190}{ORCID})
+\strong{Maintainer}: Lasse Engbo Christiansen \email{lsec@ssi.dk} (\href{https://orcid.org/0000-0001-5019-1931}{ORCID})
 
 Authors:
 \itemize{
-  \item Lasse Engbo Christiansen \email{lsec@ssi.dk} (\href{https://orcid.org/0000-0001-5019-1931}{ORCID})
+  \item Kasper Schou Telkamp \email{kasper.telkamp@gmail.com} (\href{https://orcid.org/0009-0001-5126-0190}{ORCID})
 }
 
 Other contributors:
