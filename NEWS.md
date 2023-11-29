@@ -1,5 +1,9 @@
 # aeddo (development version)
 
+## Bug fix
+
+* Wrap the dispersion variable `phi` in `exp()` to ensure that it is a possible value.
+
 # aeddo 0.1.1
 
 ## Patch
