@@ -65,7 +65,7 @@ nll_poisson_gamma <- function(
   # Construct vector with fixed effects parameters
   beta <- theta[1:n_parameters]
   # ... and model parameters
-  phi <- theta[-(1:n_parameters)]
+  phi <- exp(theta[-(1:n_parameters)])
 
   # Define the lambda parameter
   lambda <- exp(design_matrix %*% beta - log(n))
