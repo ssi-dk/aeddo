@@ -4,6 +4,10 @@
 
 * Wrap the dispersion variable `phi` in `exp()` to ensure that it is a possible value.
 
+## Improvements
+
+* Now the starting guess for the models parameters, `theta`, is based on the previous round of optimization. This increases the performance and robustness of the paramter estimation.
+
 # aeddo 0.1.1
 
 ## Patch
