@@ -180,7 +180,7 @@ aeddo <- function(
       ncol(reference_design_matrix)
     )]
     # ... and dispersion parameter, phi
-    phi <- optimized_param$par[length(optimized_param$par)]
+    phi <- exp(optimized_param$par[length(optimized_param$par)])
 
     # Establish one-step ahead lambda using reference observation
     lambda <- c(
