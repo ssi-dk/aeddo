@@ -127,6 +127,9 @@ aeddo <- function(
     )
   }
 
+  # Set starting guess for theta 
+  theta <- init_theta
+
   # Loop over the observations to perform windowed estimation
   for (i in 1:(n_observation - k)) {
     # Extract data point for this estimation window
@@ -160,7 +163,7 @@ aeddo <- function(
 
     # Gather all arguments in a list for`do.call()`
     optimiser_arguments <- list(
-      par = init_theta,
+      par = theta,
       data = window_data,
       formula = formula,
       fn = nll_poisson_gamma,
@@ -216,6 +219,9 @@ aeddo <- function(
       past_outbreaks <- past_outbreaks %>%
         dplyr::bind_rows(reference_data)
     }
+
+    # Set starting guess for theta given last round of optimization
+    theta <- optimized_param$par * 0.7
   }
 
   return(results)
