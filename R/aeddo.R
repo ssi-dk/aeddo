@@ -128,7 +128,7 @@ aeddo <- function(
   }
 
   # Set starting guess for theta 
-  theta <- init_theta
+  theta <- init_theta # TODO: #17 Implement a method to infer the initial `theta`, `lower`, and `upper`
 
   # Loop over the observations to perform windowed estimation
   for (i in 1:(n_observation - k)) {
